@@ -1,0 +1,29 @@
+import java.util.*;
+public class twins {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int total = 0;
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            total += arr[i];
+        }
+        Arrays.sort(arr);
+        int bro1 = 0;
+        int bro2 = total;
+        int count = 0;
+        int left = 0;
+        int right = n - 1;
+        while (left <= right) {
+            bro1 += arr[right];
+            bro2 -= arr[right];
+            right--;
+            count++;
+            if (bro1 > bro2) {
+                break;
+            }
+        }
+        System.out.println(count);
+    }
+}
